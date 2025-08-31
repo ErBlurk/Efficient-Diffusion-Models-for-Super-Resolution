@@ -14,6 +14,8 @@
 
 ResShift improves single-image super-resolution by combining spatial, frequency (DCT - Discrete Cosine Transform), and wavelet (DWT - Discrete Wavelet Transform) representations inside a conditioned diffusion framework. The goal is simple, get sharper textures and cleaner edges than bicubic while keeping model size and inference time comparable to lightweight baselines. The codebase trains a conditional reverse Markov model that starts from a bicubic-upsampled base image (y0) and iteratively refines high-frequency content using a UNet backbone and dual-domain feature streams.
 
+[Main notebook here!](efficient_diffusion_super_res.ipynb)
+
 ---
 
 ## Aim & approach
@@ -38,8 +40,6 @@ Reproducibility: place DIV2K files under `datasets/DIV2K/`:
 datasets/DIV2K/train/HR/    # 800 HR images
 datasets/DIV2K/valid/HR/    # 200 HR images
 ```
-
-The notebook expects PNG files in those folders.
 
 ---
 
