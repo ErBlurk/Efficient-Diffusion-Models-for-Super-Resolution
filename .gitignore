@@ -1,0 +1,3 @@
+checkpoints/*
+datasets/DIV2K/train/HR/*
+datasets/DIV2K/valid/HR/*
