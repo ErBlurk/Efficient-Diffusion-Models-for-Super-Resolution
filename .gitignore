@@ -1,3 +1,6 @@
 checkpoints/*
 datasets/DIV2K/train/HR/*
 datasets/DIV2K/valid/HR/*
+
+!checkpoints/resshift_final.pt
+!checkpoints/resshift_epoch_380.pt
