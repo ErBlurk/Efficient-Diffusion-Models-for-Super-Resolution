@@ -22,8 +22,10 @@ ResShift improves single-image super-resolution by combining spatial, frequency 
 
 The project is built around three simple ideas:
 
-* **Conditioned diffusion sampling** - instead of sampling from pure noise, the reverse chain is conditioned on a bicubic upsample (y0). This biases the sampler to preserve global structure and speeds up convergence.
+* **Conditioned diffusion sampling** - instead of predicting the full HR image directly, it predicts the difference (x0 − y0) between ground truth HR and bicubic y0. This focuses capacity on reconstructing high-frequency details while leaving low-frequency structure to y0. This biases the sampler to preserve global structure and speeds up convergence.
+
 * **Dual-domain feature fusion** - the network processes spatial, frequency (DCT), and wavelet (DWT) feature streams in parallel and fuses them before decoding. Frequency streams expose edges and texture coefficients explicitly; wavelets provide multi-scale detail.
+
 * **Lightweight backbone** - a UNet-style encoder/decoder with time conditioning (sinusoidal embeddings to MLP) mixes multi-scale context while keeping parameter counts reasonable.
 
 Together these ideas let the model focus explicitly on high-frequency restoration (edges, texture) while relying on y0 for coarse structure. The eta schedule and kappa coefficient control the forward / reverse noise mixing and are important for stability and perceptual behavior.
